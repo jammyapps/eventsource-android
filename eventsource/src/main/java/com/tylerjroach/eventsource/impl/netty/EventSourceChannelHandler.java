@@ -69,8 +69,8 @@ public class EventSourceChannelHandler extends SimpleChannelUpstreamHandler
 
   @Override public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
       throws Exception {
-    HttpRequest request =
-        new DefaultHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET, uri.toString());
+
+    HttpRequest request = new DefaultHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET, uri.getPath());
     request.addHeader(Names.ACCEPT, "text/event-stream");
 
     if (headers != null) {
